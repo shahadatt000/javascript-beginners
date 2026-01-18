@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>login page</title>
+  </head>
+  <style>
+    * {
+      margin: 0px;
+      padding: 0px;
+      box-sizing: border-box;
+    }
+
+    .center_div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .body_container {
+      /* background-color: red; */
+      height: 100vh;
+      width: 100vw;
+
+      background-position: center;
+      background-repeat: no-repeat;
+      object-fit: cover;
+      backdrop-filter: blur(8px);
+      background-attachment: fixed;
+      transition: background-image 0.5s ease-in-out;
+      background-size: cover;
+    }
+    #main_container {
+      min-width: 35vw;
+      min-height: 60vh;
+
+      /* background-color: blue; */
+      /* backdrop-filter:blur(5px); */
+      border: 0.5px solid rgba(255, 255, 255, 0.355);
+      border-radius: 10px;
+      box-shadow: 2px 1px 150px rgb(255, 255, 255);
+      margin: 2px 0px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .form_class {
+      display: flex;
+      flex-direction: column;
+      height: 65vh;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+
+      /* background-color: rgba(137, 203, 244, 0.396); */
+      backdrop-filter: blur(100px);
+    }
+
+    form label {
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-weight: 700;
+      font-size: 2rem;
+      color: #000000;
+      text-transform: uppercase;
+    }
+
+    form input {
+      width: 80%;
+      height: 7%;
+      border: none;
+      border-radius: 5px;
+      padding: 5px;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      outline: none;
+    }
+
+    form input::placeholder {
+      font-size: 1rem;
+      color: rgba(0, 0, 0, 0.219);
+    }
+
+    input:focus {
+      font-size: 1rem;
+      color: black;
+      text-transform: capitalize;
+      border-color: blue;
+      box-shadow: 0 0 5px rgba(0, 0, 255, 0.5);
+    }
+
+    .button_class button {
+      backdrop-filter: blur(10px);
+      color: rgb(119, 50, 50);
+      float: right;
+      position: absolute;
+      top: 10px;
+      right: 50px;
+      font-size: 1.5;
+      border-radius: 8px;
+      border: 1px solid white;
+      padding: 5px;
+      font-weight: 500;
+      text-transform: uppercase;
+      /* background-color: transparent; */
+      cursor: pointer;
+    }
+  </style>
+
+  <!-- ----------------------------- HTML coding ----------------------------- -->
+
+  <body
+    class="body_container center_div"
+    style="
+      background-image: url(https://images.unsplash.com/photo-1720173391541-523cdbf2f21f?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Z2xhc3MlMjB3YWxscGFwZXJ8ZW58MHx8MHx8fDA%3D);
+    "
+  >
+    <div class="button_class">
+      <button onclick="Random_image()">🪄✨ click for magic 🔮</button>
+    </div>
+    <div id="main_container">
+      <form action="" class="form_class">
+        <label for="username">username</label>
+        <input type="text" placeholder="enter your name" required />
+        <label for="password">Password</label>
+        <input type="password" placeholder="enter your password" required />
+        <input type="submit" />
+      </form>
+    </div>
+
+    <!-- ----------------------------- javascript ------------------------------ -->
+    <script>
+      let ImagesList = {
+        1: "https://img.freepik.com/free-vector/gradient-iridescent-glitter-background_23-2149929426.jpg",
+
+        2: "https://img.freepik.com/premium-vector/liquid-holographic-abstract-colorful-blurred-background-with-glossy-gradient-mirror-effect_729659-8.jpg",
+
+        3: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1XItJfBUZjTVc--2b-vG90Qblx_0p2qEv6Q&s",
+
+        4: "https://t4.ftcdn.net/jpg/09/86/54/63/360_F_986546394_d3jsxWIbjIcANAs4evAM6x9QsC5n2EVS.jpg",
+
+        5: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRi2x8RiCqcGmMiQn455B9Jxup0QTcobH7bw&s",
+        6: "https://static.vecteezy.com/system/resources/thumbnails/049/855/708/small/nature-background-high-resolution-wallpaper-for-a-serene-and-stunning-view-free-photo.jpg",
+        7: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiKJ5jJ2u1e4jpeyyvARsvgAtncKdSTnvEQw&s",
+        8: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPWT8eN15tNhIRKGEwmsjRfebwjvufU5ajmQ&s",
+        9: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJOtxFRIQEtvouZcslmZl2O6ucj2hANp-btQ&s",
+      };
+
+      let button = document.querySelector("button");
+      let clickcount = 1;
+
+      function Random_image() {
+        clickcount++;
+        if (clickcount % 2 === 0) {
+          button.textContent = `magic is ready ${clickcount}`;
+
+          let random = Math.floor(Math.random() * 9) + 1;
+          console.log(random);
+
+          let selectedImageUrl = ImagesList[random];
+          let images = document.querySelector("body");
+
+          images.style.backgroundImage = `url('${selectedImageUrl}')`;
+        } else {
+          button.textContent = " 🪄✨ click for magic 🔮";
+        }
+
+        console.log(`this is working imagelist`);
+      }
+    </script>
+  </body>
+</html>
