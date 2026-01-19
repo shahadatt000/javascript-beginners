@@ -149,12 +149,15 @@
           placeholder="enter your password"
           required
         />
-        <input type="submit" />
+        <input type="submit" id="submit" />
       </form>
     </div>
 
     <!-- ----------------------------- javascript ------------------------------ -->
     <script>
+      // Declare these variables globally so they're accessible in all event listeners
+      let raw_username = ""; // Initialize to empty string
+      let raw_password = "";
       let ImagesList = {
         1: "https://img.freepik.com/free-vector/gradient-iridescent-glitter-background_23-2149929426.jpg",
 
@@ -200,18 +203,36 @@
 
       let username = document.querySelector("#username");
       let password = document.querySelector("#password");
+      let submit = document.querySelector("#submit");
 
-      username.addEventListener("input", function (password) {
-        let raw_password = password.target.value;
+      username.addEventListener("input", function (username) {
+        raw_username = username.target.value; // Remove 'let'
 
-        if (raw_password) {
-          console.log(raw_password);
+        if (raw_username) {
+          console.log(raw_username);
           usernames.forEach((usernames) => {
-            if (raw_password === usernames) {
+            if (raw_username === usernames) {
               alert("username already exist");
               username.textContent = "";
-            }
+            } else console.log(`new user available${raw_username}`);
           });
+        }
+      });
+
+      password.addEventListener("input", function (password) {
+        raw_password = password.target.value;
+        console.log(raw_password);
+      });
+
+      submit.addEventListener("click", (event) => {
+        event.preventDefault(); // Move to the top
+
+        console.log("submit button clicked");
+
+        if (raw_password && raw_username) {
+          usernames.push(raw_username); // Add to usernames
+          passwords.push(raw_password);
+          alert("your profile generated");
         }
       });
     </script>
