@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>date and time</title>
+  </head>
+  <style>
+    * {
+      margin: 0px;
+      padding: 0px;
+      box-sizing: border-box;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-size: 1rem;
+    }
+
+    body {
+      display: grid;
+      place-items: center;
+    }
+  </style>
+  <body>
+    <button onclick="date1()" style="margin: 20px">
+      click for current date
+    </button>
+
+    <button id="day_button" onclick="day1()" style="margin: 20px">
+      click for day
+    </button>
+    <button id="time_button" onclick="current_time()" style="margin: 20px">
+      click for time
+    </button>
+
+    <!-- ------------------------------- script -------------------------------- -->
+
+    <script>
+      let date = new Date();
+      const dayList = [
+        "sunday",
+        "monday",
+        "tuesday",
+        "wednesday",
+        "thursday",
+        "friday",
+        "saturday",
+      ];
+      function date1() {
+        let data = document.createElement("h1");
+
+        data.innerHTML = "";
+
+        console.log(date);
+        data.textContent = date;
+
+        let button = document.querySelector("button");
+        button.appendChild(data);
+      }
+
+      function day1() {
+        let day = date.getDay();
+        console.log(`today is: ${dayList[day]}`);
+        let dayElement = document.querySelector("#day_button");
+        let days = document.createElement("h1");
+        days.textContent = `today is: ${dayList[day]}`;
+        dayElement.appendChild(days);
+      }
+
+      function current_time() {
+        let hours = date.getHours();
+        let minutes = date.getMinutes();
+        let seconds = date.getSeconds();
+
+        console.log(hours, minutes, seconds);
+      }
+    </script>
+  </body>
+</html>
