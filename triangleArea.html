@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>triangle Area</title>
+  </head>
+  <style>
+    .Parent_container {
+      width: 70vw;
+      height: 50vh;
+
+      margin: 10px auto;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      font-size: 2rem;
+      margin: 2px;
+    }
+    .lableClass {
+      display: flex;
+      flex-direction: column;
+    }
+
+    input {
+      width: 50vw;
+      height: 25px;
+      border-radius: 5px;
+      outline: none;
+      border: 1px solid red;
+    }
+
+    h6 {
+      font-size: 2rem;
+    }
+    button {
+      width: fit-content;
+      margin: 10px auto;
+      background-color: blue;
+      outline: none;
+      border: none;
+      height: 30px;
+      padding: 10px;
+      border-radius: 5px;
+      color: white;
+      font-family:
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Oxygen,
+        Ubuntu,
+        Cantarell,
+        "Open Sans",
+        "Helvetica Neue",
+        sans-serif;
+    }
+  </style>
+
+  <body>
+    <h1 style="text-align: center">calculate the Triangle area</h1>
+
+    <div style="text-align: center; font-size: 2rem">
+      enter the sides of Triangle
+    </div>
+
+    <div class="Parent_container">
+      <form action="">
+        <div class="lableClass">
+          <label for="side1"> enter the first side </label>
+          <input type="number" id="side1" class="side" />
+        </div>
+        <div class="lableClass">
+          <label for="side2"> enter the second side </label>
+          <input type="number" id="side2" class="side" />
+        </div>
+        <div class="lableClass">
+          <label for="side3">enter the third side </label>
+          <input type="number" id="side3" class="side" />
+        </div>
+
+        <button onclick="area()" onsubmit="event.preventDefault()">
+          get RESULTS!
+        </button>
+      </form>
+
+      <h6>This is your result</h6>
+    </div>
+    <script>
+      function area() {
+        let inputs = document.querySelectorAll(".side");
+        let input = Array.from(inputs);
+        let totolsum = input.reduce((accumulator, e) => {
+          return accumulator + Number(e.value);
+        }, 0);
+        console.log(totolsum);
+      }
+
+      const form = document.querySelector("form");
+
+      // Add listener to the 'submit' event
+      form.addEventListener("submit", function (event) {
+        // Prevent the default form submission (reload)
+        event.preventDefault();
+
+        // Custom form handling logic goes here
+        console.log("Form submission prevented.");
+      });
+    </script>
+  </body>
+</html>
