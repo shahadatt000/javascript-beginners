@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>unsplash API</title>
+  </head>
+  <!-- -------------------------------- style -------------------------------- -->
+
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap");
+    @import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+    * {
+      margin: 0px;
+      padding: 0px;
+      box-sizing: border-box;
+
+      font-size: 1.3rem;
+      font-family: "Roboto", sans-serif;
+    }
+
+    body {
+      background-color: whitesmoke;
+    }
+
+    h1 {
+      width: fit-content;
+      text-transform: capitalize;
+      text-align: center;
+      margin: 0 auto;
+      margin-bottom: 20px;
+      margin-top: 20px;
+      padding-bottom: 6px;
+      border-bottom: 2px solid rgb(239, 203, 0);
+    }
+
+    .Parent_container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+    }
+
+    .Image_div {
+      background-image: url("");
+      border: 2px solid rgb(76, 240, 255);
+
+      background-position: fixed;
+      background-repeat: no-repeat;
+      object-fit: contain;
+
+      background-color: aquamarine;
+      width: 30vw;
+      height: 30vh;
+
+      margin: 10px;
+    }
+  </style>
+  <!-- ------------------------------ style end ------------------------------ -->
+  <body>
+    <h1>The Use of Unsplash API and Grid</h1>
+
+    <div class="Parent_container">
+      <div class="Image_div">1</div>
+      <div class="Image_div">2</div>
+      <div class="Image_div">3</div>
+      <div class="Image_div">4</div>
+      <div class="Image_div">5</div>
+      <div class="Image_div">6</div>
+    </div>
+    <!-- -------------------------- javascript-starts -------------------------- -->
+    <script>
+      let backgroundimages = document.querySelectorAll(".Image_div");
+      backgroundimages.forEach((image) => {
+        image.style.backgroundImage =
+          "url('https://static.vecteezy.com/system/resources/thumbnails/049/855/708/small/nature-background-high-resolution-wallpaper-for-a-serene-and-stunning-view-free-photo.jpg')";
+      });
+    </script>
+  </body>
+</html>
