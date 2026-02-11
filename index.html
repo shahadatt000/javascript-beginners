@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>javacript string manipulation</title>
+  </head>
+  <body>
+    <script>
+      // single character print
+      let reverse2 = " ";
+      let s = "shahadatt";
+      console.log(s.length);
+      let newname = Array.from(s);
+      newname.forEach((element) => {
+        console.log(element);
+      });
+      for (let i = newname.length - 1; i >= 0; --i) {
+        let reverse = newname[i];
+        reverse2 += reverse;
+      }
+      console.log(reverse2);
+
+      // palindrome check
+
+      let userinput = prompt("enter your string to check the palindrome ");
+      let reverseword = "";
+      for (let i = 0; i <= userinput.length - 1; i++) {
+        console.log(userinput[i]);
+        let length = userinput.length;
+        let reverseindex = length - i - 1;
+        reverseword += userinput[reverseindex];
+
+        if (userinput[i] === userinput[reverseindex]) {
+          console.log("your characters are matched to palindromee");
+        } else {
+          console.log("try again");
+          break;
+        }
+      }
+      console.log(`the reverse of ${userinput} is ${reverseword}`);
+    </script>
+  </body>
+</html>
